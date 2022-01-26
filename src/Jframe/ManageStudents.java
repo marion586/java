@@ -409,7 +409,8 @@ public class ManageStudents extends javax.swing.JFrame {
 
         getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 1150, 830));
 
-        setBounds(0, 0, 1724, 824);
+        setSize(new java.awt.Dimension(1724, 824));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked

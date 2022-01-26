@@ -295,6 +295,17 @@ public class HomePage extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(153, 153, 153));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Return_Purchase_26px.png"))); // NOI18N
         jLabel12.setText("     Return Book");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel12MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel12MouseExited(evt);
+            }
+        });
         jPanel11.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 200, 40));
 
         jPanel3.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 340, 60));
@@ -306,6 +317,17 @@ public class HomePage extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(153, 153, 153));
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_View_Details_26px.png"))); // NOI18N
         jLabel13.setText("     View Records");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel13MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel13MouseExited(evt);
+            }
+        });
         jPanel12.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 200, 40));
 
         jPanel3.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 340, 60));
@@ -582,6 +604,34 @@ public class HomePage extends javax.swing.JFrame {
     private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
             jPanel10.setBackground(mouseExitColor);
     }//GEN-LAST:event_jLabel11MouseExited
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        ReturnBook rBook = new ReturnBook();
+        rBook.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseEntered
+        jPanel11.setBackground(mouseEnterColor);
+    }//GEN-LAST:event_jLabel12MouseEntered
+
+    private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseExited
+         jPanel11.setBackground(mouseExitColor);
+    }//GEN-LAST:event_jLabel12MouseExited
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        ViewAllRecord viewR = new ViewAllRecord();
+        viewR.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
+        jPanel12.setBackground(mouseEnterColor);
+    }//GEN-LAST:event_jLabel13MouseEntered
+
+    private void jLabel13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseExited
+       jPanel12.setBackground(mouseExitColor);
+    }//GEN-LAST:event_jLabel13MouseExited
 
     /**
      * @param args the command line arguments
