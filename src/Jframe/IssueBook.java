@@ -22,7 +22,6 @@ public class IssueBook extends javax.swing.JFrame {
     }
     boolean validBook = true;
     boolean validStudent = true;
-
     //to fetch the book details from the database and display it to book panel
     public void getBookDetails(){
         int bookId = Integer.parseInt(txt_bookId.getText());
@@ -187,6 +186,35 @@ public class IssueBook extends javax.swing.JFrame {
             }
             return isAlreadyIssued;
             
+        }
+        public boolean validateDate(){
+            Date uIssueDate = date_issueDate.getDatoFecha();
+            Date uDueDate = date_dueDate.getDatoFecha();
+            
+            //convertion
+            Long l1 = uIssueDate.getTime();
+            Long l2 = uDueDate.getTime();
+            if(l1>=l2){
+                System.out.println("l1 =" + l1 );
+                System.out.println("l2 =" + l2 );
+                return false;
+            }
+            else {
+                return true;
+            }
+            
+        }
+        public boolean validatefield(){
+            Date uIssueDate = date_issueDate.getDatoFecha();
+            Date uDueDate = date_dueDate.getDatoFecha();
+            
+     
+            if(!txt_bookId.getText().equals("")&& !txt_studentId.getText().equals("") && uIssueDate!=null && uDueDate!=null){
+                return true;
+            }
+            else {
+                return false;
+            }
         }
     
     /**
@@ -680,31 +708,44 @@ public class IssueBook extends javax.swing.JFrame {
 
     private void rSMaterialButtonCircle2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle2ActionPerformed
         
+   
         
-        if(validBook && validStudent){
-        if(lbl_quantity.getText().equals("0")){
-            JOptionPane.showMessageDialog(this, "book is not available");
-        }
-        else{
-            if(isAlreadyIssued() == false){
-                    if(issueBook()==true){
-                        JOptionPane.showMessageDialog(this, "book issued succefully");
-                        updateBookCount();
+            if(validatefield()){
+                    if(validateDate()&&validBook&&validStudent){
+                        if(lbl_quantity.getText().equals("0")){
+                            JOptionPane.showMessageDialog(this, "book is not available");
+                        }
+                        else{
+                            if(isAlreadyIssued() == false){
+                                    if(issueBook()==true){
+                                        JOptionPane.showMessageDialog(this, "book issued succefully");
+                                        updateBookCount();
 
+                                    }
+                                    else
+                                    {
+                                        JOptionPane.showMessageDialog(this, "can't issue the book");
+                                    }
+                                   }
+                            else{
+                                       JOptionPane.showMessageDialog(this, "this student already has this book");
+                                   }
+                        }
                     }
-                    else
-                    {
-                        JOptionPane.showMessageDialog(this, "can't issue the book");
+                     else{
+                        if(!validateDate()){
+                        JOptionPane.showMessageDialog(this, "Due date must be greater than Issue  date");
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(this, "Book Id and Student Id must be valid");
+                        }
+            }
                     }
-                   }
+                       
             else{
-                       JOptionPane.showMessageDialog(this, "this student already has this book");
-                   }
-        }
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "student or book not valid");
-        }
+                JOptionPane.showMessageDialog(this, "make sure ,you fill all fields");
+            }
     }//GEN-LAST:event_rSMaterialButtonCircle2ActionPerformed
 
     private void lbl_studentIdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lbl_studentIdFocusLost

@@ -124,6 +124,7 @@ public class ViewAllRecord extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        rSMaterialButtonCircle2 = new necesario.RSMaterialButtonCircle();
         panel_table = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_IssuebookDetails = new rojerusan.RSTableMetro();
@@ -185,7 +186,7 @@ public class ViewAllRecord extends javax.swing.JFrame {
                 rSMaterialButtonCircle1ActionPerformed(evt);
             }
         });
-        jPanel1.add(rSMaterialButtonCircle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 200, 220, 60));
+        jPanel1.add(rSMaterialButtonCircle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 200, 150, 60));
 
         jPanel2.setBackground(new java.awt.Color(255, 51, 51));
 
@@ -253,6 +254,15 @@ public class ViewAllRecord extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1440, 0, 40, 40));
 
+        rSMaterialButtonCircle2.setBackground(new java.awt.Color(255, 51, 0));
+        rSMaterialButtonCircle2.setText("ALL");
+        rSMaterialButtonCircle2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSMaterialButtonCircle2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rSMaterialButtonCircle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 200, 160, 60));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1490, 280));
 
         panel_table.setBackground(new java.awt.Color(255, 255, 255));
@@ -310,9 +320,22 @@ public class ViewAllRecord extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void rSMaterialButtonCircle1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle1ActionPerformed
-        clearTable();
+        
+        if(date_fromDate.getDatoFecha()!=null && date_toDate.getDatoFecha() !=null){
+            clearTable();
         search();
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "please select a date");
+        }
+        
+        
     }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
+
+    private void rSMaterialButtonCircle2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle2ActionPerformed
+        clearTable();
+        setIssueBookDetailsToTable();
+    }//GEN-LAST:event_rSMaterialButtonCircle2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -364,6 +387,7 @@ public class ViewAllRecord extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panel_table;
     private necesario.RSMaterialButtonCircle rSMaterialButtonCircle1;
+    private necesario.RSMaterialButtonCircle rSMaterialButtonCircle2;
     private rojerusan.RSTableMetro tbl_IssuebookDetails;
     // End of variables declaration//GEN-END:variables
 }
